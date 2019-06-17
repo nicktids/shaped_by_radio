@@ -1,3 +1,7 @@
+# remove get iplayer and bbc
+# exploration/bbc-radio-tracklisting-downloader/
+exploration/get_iplayer-master/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
