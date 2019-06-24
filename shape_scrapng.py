@@ -7,6 +7,8 @@ import logging
 from bs4 import BeautifulSoup
 import pandas as pd
 
+#api help from https://get-iplayer.infradead.narkive.com/fcULS8EM/bbc-programmes-api-json-feeds
+#https://github.com/bbc/programmes-clifton/blob/master/app/config/routing.yml
 
 def get_show_calendar(broadcast_pid, api_url='http://clifton.api.bbci.co.uk', calendar="/aps/programmes/{pid}/episodes.json"):
     '''
