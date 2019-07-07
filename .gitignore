@@ -1,3 +1,6 @@
+# 
+secret_settings.toml
+
 # remove get iplayer and bbc
 # exploration/bbc-radio-tracklisting-downloader/
 exploration/get_iplayer-master/
