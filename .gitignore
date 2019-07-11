@@ -1,5 +1,6 @@
 # 
-secret_settings.toml
+.secrets.toml
+.vscode
 
 # remove get iplayer and bbc
 # exploration/bbc-radio-tracklisting-downloader/
