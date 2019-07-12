@@ -11,8 +11,12 @@ class Station(db.Model):
 
 class Broadcaster(db.Model):
     id = Column(Integer, primary_key=True)
-    name = Column(String(100),unique=True)
+    name = Column(String(100))
+    show_name = Column(String(100))
+    broadcast_pid = Column(String(20))
+    station_id = Column(Integer, ForeignKey('station.id'))
+
+class episode(db.Model):
+    id = Column(Integer, primary_key=True)
     
-
-
     
