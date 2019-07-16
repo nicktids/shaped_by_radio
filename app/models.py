@@ -16,7 +16,26 @@ class Broadcaster(db.Model):
     broadcast_pid = Column(String(20))
     station_id = Column(Integer, ForeignKey('station.id'))
 
-class episode(db.Model):
+class Episode(db.Model):
+    id = Column(Integer, primary_key=True)
+    date = Column(Date)
+    ep_pid = Column(String(20))
+    duration = Column(Integer)
+    title = Column(String(100))
+    broadcast_id = Column(Integer, ForeignKey('broadcaster.id'))
+
+    def __repr__(self):
+        return f'<Episode {self.ep_pid} - {self.title}>'    
+
+class Artist(db.Model):
     id = Column(Integer, primary_key=True)
     
+
+class tracks(db.Model):
+    id = Column(Integer, primary_key=True)
+    artist = Column(String(100))
+    track_title = Column(String(100))
+    position = 
+    
+
     
