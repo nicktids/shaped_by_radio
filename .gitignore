@@ -1,4 +1,5 @@
 # 
+.secrets_settings.toml
 .secrets.toml
 .vscode
 
