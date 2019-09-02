@@ -11,7 +11,7 @@ class Station(db.Model):
 
 class Broadcaster(db.Model):
     id = Column(Integer, primary_key=True)
-    name = Column(String(100))
+    presenter = Column(String(100))
     show_name = Column(String(100))
     broadcast_pid = Column(String(20))
     station_id = Column(Integer, ForeignKey('station.id'))
@@ -22,6 +22,7 @@ class Episode(db.Model):
     ep_pid = Column(String(20))
     duration = Column(Integer)
     title = Column(String(100))
+    description = Column(String(3000))
     broadcast_id = Column(Integer, ForeignKey('broadcaster.id'))
 
     def __repr__(self):
@@ -29,13 +30,17 @@ class Episode(db.Model):
 
 class Artist(db.Model):
     id = Column(Integer, primary_key=True)
+    artist_name = Column(String(100))
+    musicbrainz_gid = Column(String(100))
+    bbc_artist_pid = Column(String(10))
     
-
+    
 class tracks(db.Model):
     id = Column(Integer, primary_key=True)
-    artist = Column(String(100))
-    track_title = Column(String(100))
-    position = 
+    artist_id = Column(Integer, ForeignKey('artist.id'))
+    track_title = Column(String(200))
+    bbc_record_id = Column(String(200))
+
     
 
     
