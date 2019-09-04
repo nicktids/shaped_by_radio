@@ -1,6 +1,7 @@
 # 
 .secret_settings.toml
 .secrets.toml
+.secrets.yml
 .vscode
 
 # remove get iplayer and bbc

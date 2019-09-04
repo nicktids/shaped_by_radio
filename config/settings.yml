@@ -1,0 +1,16 @@
+default:
+  name : "radioshaped"
+  db:
+    prefix: ""
+    host: ""
+    username:  ""
+    password : "" 
+    port : 5432
+    database : "radioshaped"
+
+development:
+  debug: true
+
+production:
+  debug : false
+
