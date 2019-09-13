@@ -8,6 +8,6 @@ import os
 class Config(object):
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'I_love_MAH'
     
-    DB_URL = f'postgresql+psycopg2://{settings.USERNAME}:{settings.PASSWORD}@{settings.HOST}:{settings.PORT}/{settings.DATABASE}'
+    DB_URL = f'postgresql+psycopg2://{settings.DB.USERNAME}:{settings.DB.PASSWORD}@{settings.DB.HOST}:{settings.DB.PORT}/{settings.DB.DATABASE}'
     SQLALCHEMY_DATABASE_URI = DB_URL
     SQLALCHEMY_TRACK_MODIFICATIONS = False

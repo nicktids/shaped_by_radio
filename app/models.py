@@ -12,7 +12,7 @@ class Station(db.Model):
 class Broadcast(db.Model):
     id = Column(Integer, primary_key=True)
     pid = Column(String(10))
-    shortname = Column(Sting(10))
+    shortname = Column(String(10))
     presenter = Column(String(100))
     show_name = Column(String(100))
     first_broadcast_date = Column(Date)

@@ -1,10 +1,6 @@
 import requests
-import urllib
 import json
-import lxml.html
-from lxml import etree
 import logging
-from bs4 import BeautifulSoup
 import pandas as pd
 
 from dynaconf import settings
