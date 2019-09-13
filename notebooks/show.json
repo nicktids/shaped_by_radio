@@ -1,0 +1,130 @@
+// 20190904215443
+// http://clifton.api.bbci.co.uk/aps/programmes/b08nz0qg.json
+
+{
+    "programme": {
+      "type": "episode",
+      "pid": "b08nz0qg",
+      "expected_child_count": null,
+      "position": null,
+      "image": {
+        "pid": "p051df8r"
+      },
+      "media_type": "audio",
+      "title": "With Mac DeMarco",
+      "short_synopsis": "Mary Anne catches up with Mac DeMarco ahead of the release of his new album This Old Dog.",
+      "medium_synopsis": "Mary Anne catches up with Mac DeMarco to talk about his new album and his search for an assistant for his fan club...",
+      "long_synopsis": "Mary Anne catches up with Canadian singer-songwriter Mac DeMarco, ahead of the release of his new album This Old Dog.\n\nAs the search for an assistant for his fan club goes on, we also find out more about DeMarco's special relationship with his fans, and why he feels it is important to connect with them.\n\n'This Old Dog' will be the singer's third album, and is due for release in May 2017. Expect tunes from this, plus music from those who have influenced DeMarco's sound, including Neil Young and Steely Dan.",
+      "first_broadcast_date": "2017-04-30T07:00:00+01:00",
+      "display_title": {
+        "title": "Mary Anne Hobbs",
+        "subtitle": "With Mac DeMarco"
+      },
+      "ownership": {
+        "service": {
+          "type": "radio",
+          "id": "bbc_6music",
+          "key": "6music",
+          "title": "BBC Radio 6 Music"
+        }
+      },
+      "parent": {
+        "programme": {
+          "type": "brand",
+          "pid": "b01pp0xq",
+          "title": "Mary Anne Hobbs",
+          "short_synopsis": "Fascinating musical journeys with an infusion of the Arts.",
+          "media_type": null,
+          "position": null,
+          "image": {
+            "pid": "p06x0hxb"
+          },
+          "expected_child_count": null,
+          "first_broadcast_date": "2013-01-05T07:00:00Z",
+          "aggregated_episode_count": 810,
+          "ownership": {
+            "service": {
+              "type": "radio",
+              "id": "bbc_6music",
+              "key": "6music",
+              "title": "BBC Radio 6 Music"
+            }
+          }
+        }
+      },
+      "peers": {
+        "previous": {
+          "type": "episode",
+          "pid": "b08nytml",
+          "title": "With Arrested Development",
+          "first_broadcast_date": "2017-04-29T07:00:00+01:00",
+          "position": null,
+          "media_type": "audio"
+        },
+        "next": {
+          "type": "episode",
+          "pid": "b08pqnwz",
+          "title": "With Chuck D",
+          "first_broadcast_date": "2017-05-06T07:00:00+01:00",
+          "position": null,
+          "media_type": "audio"
+        }
+      },
+      "versions": [
+        {
+          "canonical": 1,
+          "pid": "b08nz0q3",
+          "duration": 10800,
+          "types": [
+            "Original version"
+          ]
+        }
+      ],
+      "links": [
+        
+      ],
+      "supporting_content_items": [
+        
+      ],
+      "categories": [
+        {
+          "type": "genre",
+          "id": "C00200",
+          "key": "entertainment",
+          "title": "Entertainment",
+          "narrower": [
+            
+          ],
+          "broader": {
+            
+          },
+          "has_topic_page": false,
+          "sameAs": null
+        },
+        {
+          "type": "genre",
+          "id": "C00076",
+          "key": "rockandindie",
+          "title": "Rock & Indie",
+          "narrower": [
+            
+          ],
+          "broader": {
+            "category": {
+              "type": "genre",
+              "id": "C00066",
+              "key": "music",
+              "title": "Music",
+              "broader": {
+                
+              },
+              "has_topic_page": false,
+              "sameAs": null
+            }
+          },
+          "has_topic_page": false,
+          "sameAs": null
+        }
+      ]
+    }
+  }
