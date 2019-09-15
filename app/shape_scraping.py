@@ -51,7 +51,7 @@ def get_show_calendar(broadcast_pid, session=session,
 
 def get_shows_in_mth(broadcast_pid, year, mth, session=session,
                      api_url=settings.API.PREFIX,
-                     api_mth=setting.API.PID_LIST_YR_MTH):
+                     api_mth=settings.API.PID_LIST_YR_MTH):
     '''
     Function that takes the Broadcaster/show, Year (int) and Month (int 1=Jan 12=Dec) 
     and returns list of shows
@@ -74,7 +74,7 @@ def get_shows_in_mth(broadcast_pid, year, mth, session=session,
     list of shows_pids for the month and year in question
 
     '''
-    show_dic = {}
+    # show_dic = {}
     ep_in_mth_url = api_url + \
         api_mth.format(pid=broadcast_pid, year=year, month=mth)
 #     print(ep_in_mth_url)
@@ -99,7 +99,7 @@ def get_show_details(episode_pid, session=session,
     Returns
     ----------
 
-    df of the show table to upload.
+    dic of the show or broadcaster
     '''
 
     ep_url = api_url + api_ep.format(pid=episode_pid)
@@ -108,14 +108,23 @@ def get_show_details(episode_pid, session=session,
     show = {}
 
     x = ep_json['programme']
-    show['date'] = x['first_broadcast_date']
-    show['pid'] = x['pid']
-    show['title'] = x['title']
-    show['desc_shoty'] = x['short_synopsis']
-    show['desc_med'] = x['medium_synopsis']
-    show['desc_long'] = x['long_synopsis']
-    show['image_pid'] = x['image']['pid']
-
+    if x['type'] == "episode":
+        show['date'] = x['first_broadcast_date']
+        show['pid'] = x['pid']
+        show['title'] = x['title']
+        show['desc_short'] = x['short_synopsis']
+        show['desc_med'] = x['medium_synopsis']
+        show['desc_long'] = x['long_synopsis']
+        show['image_pid'] = x['image']['pid']
+    elif x['type'] == "brand":
+        show['first_broadcast_date'] = x['first_broadcast_date']
+        show['pid'] = x['pid']
+        show['presenter'] = x['title']
+        show['show_name'] = x['medium_synopsis']
+        show['image_pid'] = x['image']['pid']
+        show['station_id_key'] = x['ownership']['service']['key']
+    else:
+        print("error_no_show")
     return show
 
 

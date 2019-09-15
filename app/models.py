@@ -5,6 +5,7 @@ class Station(db.Model):
     id = Column(Integer, primary_key=True)
     station = Column(String(64), index=True, unique=True)
     country = Column(String(64), index=True)
+    key = Column(String(20),unique=True)
 
     def __repr__(self):
         return '<station {}>'.format(self.station)
@@ -14,7 +15,7 @@ class Broadcast(db.Model):
     pid = Column(String(10))
     shortname = Column(String(10))
     presenter = Column(String(100))
-    show_name = Column(String(100))
+    show_name = Column(String(200))
     first_broadcast_date = Column(Date)
     image_pid = Column(String(20)) #could make it a dic later on
     station_id = Column(Integer, ForeignKey('station.id'))
