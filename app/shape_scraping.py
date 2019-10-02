@@ -43,7 +43,7 @@ def get_show_calendar(broadcast_pid, session=session,
 
     for yr in all_episodes["filters"]["years"]:
         #     print(x["id"])
-        mth_list = yr["months"]
+        # mth_list = yr["months"]
         hist_mth_yr[yr['id']] = [mth["id"] for mth in yr['months']]
 
     return hist_mth_yr
@@ -77,7 +77,7 @@ def get_shows_in_mth(broadcast_pid, year, mth, session=session,
     # show_dic = {}
     ep_in_mth_url = api_url + \
         api_mth.format(pid=broadcast_pid, year=year, month=mth)
-#     print(ep_in_mth_url)
+    print(ep_in_mth_url)
     show_json = session.get(ep_in_mth_url).json()
     shows_pid = []
 
