@@ -45,19 +45,45 @@ def add_broadcast(pid,short_name):
 
     # print(f'{bro}')
 
+def grab_all_show_pid(broadcast_pid, yr_mth: []= None):
+    """grabs all the shows ever played for a Broadcast
+    
+    Returns
+        List of shows pid
+    """
+    
+    show_list = []
+    
+    if yr_mth is None:
+        calendar = ss.get_show_calendar(broadcast_pid)
+        for yr in calendar:
+                for mth in cal[yr]:
+                    show_list.extend(ss.get_shows_in_mth(broadcast_pid,yr,mth))
+    else:
+        show_list.extend(ss.get_shows_in_mth(broadcast_pid,yr_mth[0],yr_mth[1]))
+    return show_list
+
+
+
 def showsToGrab():
+    """Checks DB for the Broadcast then grabs all the shows of that brocadcast and
+    then checks that the shows exist in the DB if they don't then grabs the show
+    
+    Returns:
+        [type] -- [description]
+    """
     bro = Broadcast.query.all()
-    shows_list = []
+    broadcast_dict = {}
+
     for b in bro:
-        cal = ss.get_show_calendar(b.pid)
+        broadcast_dict[b.pid] = grab_all_show_pid(b.pid)
         
-        for yr in cal:
-            for mth in cal[yr]:
-                shows_list.extend(ss.get_shows_in_mth(b.pid,yr,mth))
 
     #  ------------------ compare to what is in the db and then grab all the shows no there
 
-    return shows_list
+    
+
+    return broadcast_dict
 
     
 
