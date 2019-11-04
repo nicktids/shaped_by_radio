@@ -2,20 +2,33 @@ import pandas as pd
 from app import app, db
 from app.models import Station, Broadcast, Show
 
-
-
 from dynaconf import settings
 
 from sqlalchemy import create_engine
 from flask_sqlalchemy import SQLAlchemy
 
-
 import app.shape_scraping as ss
 
 db.create_all()
 
-def add_station(station, country,key_db):
-    newstation = Station(station=station, country=country,key=key_db)
+# pandas example 
+# q = scrape_db_setup.db.session.query(scrape_db_setup.Broadcast)
+# df = pd.read_sql(q.statement,scrape_db_setup.db.engine)
+
+
+def add_station(station: str, country: str,key_db):
+    """adds a new station
+    
+    Parameters
+    ----------
+    station : str
+        station name
+    country : [type]
+        [description]
+    key_db : [type]
+        [description]
+    """
+    newstation = Station(station=station, country=country, key=key_db)
     db.session.add(newstation)
     db.session.commit()
     db.session.close()
@@ -45,7 +58,7 @@ def add_broadcast(pid,short_name):
 
     # print(f'{bro}')
 
-def grab_all_show_pid(broadcast_pid, yr_mth: []= None):
+def grab_all_show_pid(broadcast_pid: str, yr_mth: () = None):
     """grabs all the shows ever played for a Broadcast
     
     Returns
@@ -57,13 +70,15 @@ def grab_all_show_pid(broadcast_pid, yr_mth: []= None):
     if yr_mth is None:
         calendar = ss.get_show_calendar(broadcast_pid)
         for yr in calendar:
-                for mth in cal[yr]:
+                for mth in calendar[yr]:
                     show_list.extend(ss.get_shows_in_mth(broadcast_pid,yr,mth))
     else:
-        show_list.extend(ss.get_shows_in_mth(broadcast_pid,yr_mth[0],yr_mth[1]))
+        show_list.extend(ss.get_shows_in_mth(broadcast_pid, yr_mth[0],yr_mth[1]))
     return show_list
 
-
+def broadcasts_in_db():
+    bro = Broadcast.query.all()
+    return(bro)
 
 def showsToGrab():
     """Checks DB for the Broadcast then grabs all the shows of that brocadcast and
@@ -72,7 +87,7 @@ def showsToGrab():
     Returns:
         [type] -- [description]
     """
-    bro = Broadcast.query.all()
+    bro = broadcasts_in_db()
     broadcast_dict = {}
 
     for b in bro:
